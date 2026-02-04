@@ -17,6 +17,7 @@ if(!cached){
 
 const dbConnect = async () => {
     if(cached.conn){
+        console.log("DB is connected using cached connection");
         return cached.conn;
     }
 
@@ -26,6 +27,7 @@ const dbConnect = async () => {
 
     try{
         cached.conn = await cached.promise;
+        console.log("DB is connected using new connection");
     } catch (error){
         cached.promise = null;
         throw error;

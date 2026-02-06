@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 function Register() {
     return (
@@ -7,31 +8,34 @@ function Register() {
                 <h1 className='text-2xl font-semibold text-center mb-6'>Register</h1>
                 <form className='space-y-6'>
                     <div>
-                        <label className='block mb-1 font-medium'>Name</label>
+                        <label htmlFor="name" className='block mb-1 font-medium'>Name</label>
                         <input
+                            id="name"
                             type="text"
-                            placeholder='Enter Name'
+                            placeholder='Enter Your Name'
                             className='w-full border-b border-white py-2 px-1 bg-gray-900 text-white outline-none placeholder-gray-400'
                         />
                     </div>
                     <div>
-                        <label className='block mb-1 font-medium'>Email</label>
+                        <label htmlFor="email" className='block mb-1 font-medium'>Email</label>
                         <input
-                            type="text"
+                            id="email"
+                            type="email"
                             placeholder='Enter Email'
                             className='w-full border-b border-white py-2 px-1 bg-gray-900 text-white outline-none placeholder-gray-400'
                         />
                     </div>
                     <div>
-                        <label className='block mb-1 font-medium'>Password</label>
+                        <label htmlFor="password" className='block mb-1 font-medium'>Password</label>
                         <input
+                            id="password"
                             type="password"
                             placeholder='Enter Password'
                             className='w-full border-b border-white py-2 px-1 bg-gray-900 text-white outline-none placeholder-gray-400'
                         />
                     </div>
 
-                    <p className='text-sm text-center mt-1'>Already have an account ? <span className='text-blue-400 hover:underline'>login</span></p>
+                    <p className='text-sm text-center mt-1'>Already have an account ? <Link href={'/login'} className='text-blue-400 hover:underline'>login</Link></p>
 
 
 

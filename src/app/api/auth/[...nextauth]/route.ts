@@ -21,7 +21,7 @@ export const authOptions: NextAuthOptions = {
                 }
                 await dbConnect();
 
-                const user = await User.findOne({email})
+                const user = await User.findOne({email}).select("+password");
                 if(!user) {
                     throw new Error("user not found");
                 }
@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
                     throw new Error("password not matched");
                 }
                 return {
-                    id: user._id,
+                    id: user._id.toString(),
                     name: user.name,
                     email: user.email,
                     image: user.image
